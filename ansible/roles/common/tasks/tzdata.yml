@@ -1,6 +1,8 @@
 ---
 - name: update tzdata
   copy: src=timezone dest=/etc/timezone owner=root group=root mode=0644
+  # File contents can be inlined, e.g.:
+  # copy: content="Europe/Moscow\n" dest=/etc/timezone owner=root group=root mode=0644
   register: timezone
 
 - name: reconfigure tzdata

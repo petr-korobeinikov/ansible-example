@@ -7,3 +7,5 @@
 
 - name: setup locale configuation
   copy: src=locale dest=/etc/default/locale
+  # File contents can be inlined, e.g.:
+  # copy: content="LC_ALL=en_US.UTF-8\nLANG=en_US.UTF-8\n" dest=/etc/default/locale
