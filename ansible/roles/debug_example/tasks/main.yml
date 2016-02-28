@@ -1,0 +1,10 @@
+---
+- name: show simple debug message
+  debug: msg="Just a debug message."
+
+- name: execute `ls -l` on `/`
+  shell: ls -l /
+  register: ls_result
+
+- name: show data registered in `ls_result`
+  debug: var=ls_result.stdout_lines
