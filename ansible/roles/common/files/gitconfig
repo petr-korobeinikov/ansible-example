@@ -1,0 +1,8 @@
+[alias]
+        st = status
+        br = branch
+        co = checkout
+        cm = checkout master
+        ci = commit -v
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        l  = log --oneline

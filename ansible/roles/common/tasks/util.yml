@@ -1,0 +1,13 @@
+---
+- name: install widely used packages
+  apt: name={{ item }} state=present
+  with_items:
+    - vim
+    - curl
+    - wget
+    - git-core
+    - tree
+    - unzip
+
+- name: install common gitconfig
+  copy: src=gitconfig dest=/etc/gitconfig
