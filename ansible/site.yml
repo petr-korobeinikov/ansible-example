@@ -4,3 +4,4 @@
   roles:
     - common
     - debug_example
+    - nginx
