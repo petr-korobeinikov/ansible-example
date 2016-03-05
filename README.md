@@ -13,9 +13,25 @@ Uncomment `#ansible.verbose  = true` to increase verbosity.
 Handcrafted module usage example
 --------------------------------
 
-This repo contains `example_module.py`, which is simplest module written in `python`.
+This repo contains simplest example modules, which is written in different languages.
+
+### `Python`:
 
     $ ansible                                                                \
         -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory \
-        -m example_module                                                    \
+        -m example_python_module.py                                          \
+        nginx                                                                \
+
+### `Bash`:
+
+    $ ansible                                                                \
+        -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory \
+        -m example_bash_module.bash                                          \
+        nginx                                                                \
+
+### `PHP`:
+
+    $ ansible                                                                \
+        -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory \
+        -m example_php_module.php                                            \
         nginx                                                                \
