@@ -1,8 +1,21 @@
+upstream php {
+    # todo add dns and use hostname instead of ip.
+    server 10.0.6.21:9876;
+    server 10.0.6.22:9876;
+}
+
 server {
     listen 80 default_server;
+    root   /vagrant/src/main/php;
+    index  index.php;
 
     location / {
-        add_header Content-Type text/plain;
-        return 200 "Hello, nginx!";
+        try_files $uri $uri/ /index.php?$uri&$args;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass  php;
+        include       fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     }
 }

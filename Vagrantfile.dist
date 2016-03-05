@@ -11,13 +11,13 @@ class MachineDefinition
 end
 
 machine_defs = [
-  MachineDefinition.new('nginx', '10.0.2.11', 2211),
-  MachineDefinition.new('php1', '10.0.2.21', 2221),
-  MachineDefinition.new('php2', '10.0.2.22', 2222),
-  MachineDefinition.new('postgres-master', '10.0.2.31', 2231),
-  MachineDefinition.new('postgres-slave1', '10.0.2.32', 2232),
-  MachineDefinition.new('redis-master', '10.0.2.41', 2241),
-  MachineDefinition.new('redis-slave1', '10.0.2.42', 2242),
+  MachineDefinition.new('nginx', '10.0.6.11', 2211),
+  MachineDefinition.new('php1', '10.0.6.21', 2221),
+  MachineDefinition.new('php2', '10.0.6.22', 2222),
+  MachineDefinition.new('postgres-master', '10.0.6.31', 2231),
+  MachineDefinition.new('postgres-slave1', '10.0.6.32', 2232),
+  MachineDefinition.new('redis-master', '10.0.6.41', 2241),
+  MachineDefinition.new('redis-slave1', '10.0.6.42', 2242),
 ]
 
 Vagrant.configure(2) do |config|
