@@ -9,3 +9,13 @@ Getting started
 4. Copy `Vagrantfile.dist` to `Vagrantfile` and run `vagrant up`
 
 Uncomment `#ansible.verbose  = true` to increase verbosity.
+
+Handcrafted module usage example
+--------------------------------
+
+This repo contains `example_module.py`, which is simplest module written in `python`.
+
+    $ ansible                                                                \
+        -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory \
+        -m example_module                                                    \
+        nginx                                                                \
