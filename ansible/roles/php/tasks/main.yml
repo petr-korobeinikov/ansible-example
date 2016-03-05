@@ -1,0 +1,27 @@
+---
+- name: add php repo
+  apt_repository: repo='ppa:ondrej/php'
+  register: result
+
+- name: update apt cache
+  apt: update_cache=yes
+  when: result|changed
+
+- name: install php
+  apt: name={{ item }} state=present
+  with_items:
+    - php7.0-cli
+    - php7.0-fpm
+    - php7.0-pgsql
+
+- name: create php log dir
+  file: name=/var/log/php7.0/ state=directory group=www-data owner=www-data
+
+- name: copy php config
+  template: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: www.conf.j2, dest: /etc/php/7.0/fpm/pool.d/www.conf }
+    - { src: php.cli.ini.j2, dest: /etc/php/7.0/cli/php.ini }
+    - { src: php.fpm.ini.j2, dest: /etc/php/7.0/fpm/php.ini }
+  notify:
+    - restart php7.0-fpm

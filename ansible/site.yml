@@ -1,4 +1,5 @@
 ---
 - include: nginx.yml
+- include: php.yml
 - include: postgres.yml
 - include: redis.yml
