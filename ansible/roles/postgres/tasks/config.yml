@@ -1,0 +1,17 @@
+---
+- name: copy postgresql config
+  template: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: postgresql/pg_hba.conf.j2, dest: /etc/postgresql/9.5/main/pg_hba.conf }
+    - { src: postgresql/postgresql.conf.j2, dest: /etc/postgresql/9.5/main/postgresql.conf }
+  notify:
+    restart postgresql
+
+- name: copy pgbouncer config
+  template: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: pgbouncer/default.j2, dest: /etc/default/pgbouncer }
+    - { src: pgbouncer/userlist.txt.j2, dest: /etc/pgbouncer/userlist.txt }
+    - { src: pgbouncer/pgbouncer.ini.j2, dest: /etc/pgbouncer/pgbouncer.ini }
+  notify:
+    restart pgbouncer

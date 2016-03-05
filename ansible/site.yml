@@ -1,7 +1,3 @@
 ---
-- hosts: all
-  become: true
-  roles:
-    - common
-    - debug_example
-    - nginx
+- include: nginx.yml
+- include: postgres.yml
