@@ -4,6 +4,13 @@ upstream php {
     server 10.0.6.22:9876 fail_timeout=1s;
 }
 
+upstream python {
+    # proxy pass to host machine;
+    # it's quite convinient in development environments while developing web apps in true fastcgi mode (not in php)
+    # todo: add environment-based mapping
+    server 10.0.6.1:5000;
+}
+
 server {
     listen 80 default_server;
     root   /vagrant/src/main/php;
@@ -17,5 +24,9 @@ server {
         fastcgi_pass  php;
         include       fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location /python-app/ {
+        proxy_pass http://python/;
     }
 }
