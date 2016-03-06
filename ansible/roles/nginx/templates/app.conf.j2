@@ -1,7 +1,7 @@
 upstream php {
     # todo add dns and use hostname instead of ip.
-    server 10.0.6.21:9876;
-    server 10.0.6.22:9876;
+    server 10.0.6.21:9876 fail_timeout=1s;
+    server 10.0.6.22:9876 fail_timeout=1s;
 }
 
 server {
