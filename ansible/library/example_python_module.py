@@ -4,5 +4,5 @@
 import json
 
 print json.dumps({
-  "greeting": "Hello, I am Ansible module written in python"
+    "greeting": "Hello, I am Ansible module written in python"
 })

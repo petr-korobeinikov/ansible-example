@@ -2,5 +2,5 @@
 <?php
 
 echo json_encode([
-  'greeting' => 'Hello, I am Ansible module written in php!'
+    'greeting' => 'Hello, I am Ansible module written in php!'
 ]);
