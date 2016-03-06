@@ -8,7 +8,7 @@
   when: result|changed
 
 - name: install php
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=latest
   with_items:
     - php7.0-cli
     - php7.0-fpm
