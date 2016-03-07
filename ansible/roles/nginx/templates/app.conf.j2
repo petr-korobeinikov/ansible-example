@@ -11,6 +11,12 @@ upstream python {
     server 10.0.6.1:5000;
 }
 
+upstream java {
+    # proxy pass to host machine too (like python above);
+    # todo: add environment-based mapping
+    server 10.0.6.1:8000;
+}
+
 server {
     listen 80 default_server;
     root   /vagrant/src/main/php;
@@ -28,5 +34,9 @@ server {
 
     location /python-app/ {
         proxy_pass http://python/;
+    }
+
+    location /java-app/ {
+        proxy_pass http://java/;
     }
 }
