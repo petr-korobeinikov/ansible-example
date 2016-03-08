@@ -3,3 +3,4 @@
 - include: php.yml
 - include: postgres.yml
 - include: redis.yml
+- include: java.yml
