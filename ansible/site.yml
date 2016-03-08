@@ -4,3 +4,4 @@
 - include: postgres.yml
 - include: redis.yml
 - include: java.yml
+- include: memcached.yml

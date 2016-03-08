@@ -22,6 +22,9 @@ machine_defs = [
   MachineDefinition.new('redis-slave1', '10.0.6.42', 2242, 256, 1),
   MachineDefinition.new('java1', '10.0.6.51', 2251, 512, 2),
   MachineDefinition.new('java2', '10.0.6.52', 2252, 512, 2),
+  MachineDefinition.new('memcached1', '10.0.6.61', 2261, 256, 1),
+  MachineDefinition.new('memcached2', '10.0.6.62', 2262, 256, 1),
+  MachineDefinition.new('memcached3', '10.0.6.63', 2263, 256, 1),
 ]
 
 Vagrant.configure(2) do |config|
@@ -50,7 +53,8 @@ Vagrant.configure(2) do |config|
           'postgres'            => %w(postgres-master postgres-slave1),
           'redis'               => %w(redis-master redis-slave1),
           'java'                => %w(java1 java2),
-          'all_groups:children' => %w(nginx postgres redis php java),
+          'memcached'           => %w(memcached1 memcached2 memcached3),
+          'all_groups:children' => %w(nginx postgres redis php java memcached),
         }
       end if idx == machine_defs.size - 1
     end
